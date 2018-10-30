@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@mipmap/loginbg"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="密码找回"
+        android:textSize="20sp"
+        android:textColor="#ffffff"/>
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/number"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:textSize="18sp"
+            android:hint="请输入账号"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:theme="@style/MyEditText"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:textSize="18sp"
+            android:hint="请输手机号"
+            android:inputType="number"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:theme="@style/MyEditText"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/verification_code"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:textSize="14sp"
+            android:hint="请输入验证码"
+            android:textColorHint="#ffffff"
+            android:theme="@style/MyEditText"
+            android:textColor="#ffffff"
+            />
+        <Button
+            android:id="@+id/get_verification_code"
+            android:layout_marginLeft="30dp"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_button"
+            android:text="获取验证码"
+            android:textColor="#66b2ff"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/ok"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_button"
+        android:text="确      认"
+        android:textSize="20sp"
+        android:textColor="#66b2ff"
+        />
+</LinearLayout>
