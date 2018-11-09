@@ -15,8 +15,8 @@ import android.widget.Toast;
 
 import com.example.administrator.hyxdmvp.AppConfig;
 import com.example.administrator.hyxdmvp.R;
-import com.example.administrator.hyxdmvp.base.dialog.Loading;
 import com.example.administrator.hyxdmvp.base.Quit;
+import com.example.administrator.hyxdmvp.base.dialog.Loading;
 import com.example.administrator.hyxdmvp.ui.presenter.login.LoginPresenter;
 import com.example.administrator.hyxdmvp.ui.view.forgetpassword.ForGetPassWordActivity;
 import com.example.administrator.hyxdmvp.ui.view.main.MainActivity;
@@ -28,6 +28,8 @@ import butterknife.OnClick;
 public class LoginActivity extends AppCompatActivity implements ILoginView {
     @BindView(R.id.editpsw)
     TextView editpsw;
+    @BindView(R.id.service)
+    EditText service;
     private LoginPresenter presenter;
     @BindView(R.id.number)
     EditText number;
@@ -61,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
             password.setText(psw);
             presenter.goRequest(userId, psw);
         }
+        service.setText(AppConfig.UrlApp);
     }
 
     @Override
@@ -114,6 +117,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ok:
+                AppConfig.UrlApp =service.getText().toString();
                 if (!"".equals(number.getText().toString()) && !"".equals(password.getText().toString())) {
                     presenter.goRequest(number.getText().toString(), password.getText().toString());
                 } else {

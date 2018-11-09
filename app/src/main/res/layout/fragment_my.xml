@@ -14,19 +14,41 @@
         android:background="@mipmap/loginbg"
         android:layout_width="match_parent"
         android:layout_height="200dp">
+
         <ImageView
             android:layout_marginTop="30dp"
             android:id="@+id/userImg"
             android:layout_width="60dp"
             android:layout_height="60dp" />
         <TextView
-            android:layout_marginTop="10dp"
-            android:text="众企智云"
-            android:id="@+id/cpName"
+            android:text="98456465"
+            android:id="@+id/userid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorwhite"
-            android:textSize="22sp"/>
+            android:textSize="20sp"/>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="13021"
+                android:id="@+id/cpno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorwhite"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:text="人民日报"
+                android:id="@+id/cpname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorwhite"
+                android:textSize="20sp"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_marginTop="5dp"
             android:gravity="center"
@@ -39,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorwhite"
-                android:textSize="22sp"/>
+                android:textSize="20sp"/>
             <TextView
                 android:layout_marginLeft="20dp"
                 android:text="王三五"
@@ -47,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorwhite"
-                android:textSize="22sp"/>
+                android:textSize="20sp"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -56,7 +78,7 @@
         android:text="修改密码"
         android:padding="15dp"
         android:background="@drawable/tab_border"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <LinearLayout
@@ -68,7 +90,7 @@
         <TextView
             android:text="当前版本"
             android:padding="15dp"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_width="0dp"
             android:layout_weight="7"
             android:layout_height="wrap_content" />
@@ -76,7 +98,7 @@
             android:id="@+id/version_code"
             android:text="v3.1"
             android:layout_weight="1"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -85,7 +107,7 @@
         android:text="退出登录"
         android:padding="15dp"
         android:background="@drawable/tab_border"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

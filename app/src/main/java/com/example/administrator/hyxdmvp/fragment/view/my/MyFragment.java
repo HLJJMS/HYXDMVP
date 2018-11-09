@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.administrator.hyxdmvp.AppConfig;
 import com.example.administrator.hyxdmvp.R;
 import com.example.administrator.hyxdmvp.base.dialog.DialogEditPassWord;
 import com.example.administrator.hyxdmvp.base.dialog.Warning;
@@ -44,15 +45,20 @@ public class MyFragment extends Fragment implements IMyView {
     @BindView(R.id.exit)
     TextView exit;
     Unbinder unbinder;
-    @BindView(R.id.cpName)
-    TextView cpName;
     @BindView(R.id.userJob)
     TextView userJob;
+    @BindView(R.id.userid)
+    TextView userid;
+    @BindView(R.id.cpno)
+    TextView cpno;
+    @BindView(R.id.cpname)
+    TextView cpname;
     private Warning warning;
     private DialogEditPassWord dialogEditPassWord;
     private Context context;
     private MyPresenter myPresenter;
     private String imgUrl = "http://tst.zhongqizhiyun.com:8020/Uploads/headportrait/";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -142,9 +148,11 @@ public class MyFragment extends Fragment implements IMyView {
     @Override
     public void getUserDataCallBack(UserDataBean bean) {
         RequestOptions requestOptions = RequestOptions.circleCropTransform();
-        Glide.with(this).load(imgUrl+bean.getMyDynamicData().get(0).getF0047()).apply(requestOptions).into(userImg);
+        Glide.with(this).load(imgUrl + bean.getMyDynamicData().get(0).getF0047()).apply(requestOptions).into(userImg);
         userName.setText(bean.getMyDynamicData().get(0).getF0003());
         userJob.setText(bean.getMyDynamicData().get(0).getF0026());
-        cpName.setText(bean.getMyDynamicData().get(0).getF0021());
+        cpname.setText(bean.getMyDynamicData().get(0).getF0021());
+        cpno.setText(bean.getMyDynamicData().get(0).getF0001());
+        userid.setText(AppConfig.UserId);
     }
 }

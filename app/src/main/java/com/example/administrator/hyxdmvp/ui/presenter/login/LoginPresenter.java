@@ -28,16 +28,6 @@ public class LoginPresenter implements ILoginPresenter {
         } else {
             view.showToast("登陆失败");
         }
-//        if(null==bean){
-//            view.showToast("登陆失败");
-//        }else if(null!=bean.getMyDynamicData()){
-//            AppConfig.CPCode = bean.getMyDynamicData().get(0).getF0001();
-//            AppConfig.Id =  bean.getMyDynamicData().get(0).getF0005();
-//            view.showToast("登陆成功");
-//            view.successLogin();
-//        }else {
-//            view.showToast("用户名密码错误");
-//        }
         view.destoryLoad();
     }
 

@@ -7,6 +7,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.net.ConnectException;
+import java.net.SocketTimeoutException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -18,7 +21,8 @@ public class BaseOkHttp<T> {
     private int defaultCode;
     //http协议默认的信息
     private String message;
-    private OkHttpClient client = new OkHttpClient();
+    private OkHttpClient client = new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).readTimeout(20, TimeUnit.SECONDS).build();
+    ;
     private CallBack<T> callBack;
     //   发送请求的连接
     String url = "";
@@ -56,6 +60,12 @@ public class BaseOkHttp<T> {
                 result = response.body().string();
             } catch (IOException e) {
                 e.printStackTrace();
+                if(e instanceof SocketTimeoutException){//判断超时异常
+                    callBack.fail("连接超时");
+                }
+                if(e instanceof ConnectException){//判断连接异常，我这里是报Failed to connect to 10.7.5.144
+                    callBack.fail("连接异常");
+                }
             }
             return result;
         }
@@ -72,15 +82,20 @@ public class BaseOkHttp<T> {
             Log.e("请求结果", s);
             if (defaultCode == 200) {
                 JSONObject jsonObject = JSONObject.parseObject(s);
-                Gson gson = new Gson();
-                bean = gson.fromJson(jsonObject.toJSONString(), type);
-                callBack.success(bean);
+                if (jsonObject.getString("code").equals("0")) {
+                    Gson gson = new Gson();
+                    bean = gson.fromJson(jsonObject.toJSONString(), type);
+                    callBack.success(bean);
+                } else {
+
+                    callBack.fail(s);
+                }
+
             } else {
 //                请求失败返回错误信息
                 callBack.fail("CODE = " + defaultCode + "MESSAGE = " + message);
             }
         }
-
     }
 
     //    回调接口(暴露在外部)

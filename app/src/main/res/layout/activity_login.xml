@@ -56,6 +56,24 @@
             android:drawableLeft="@mipmap/ic_pws"
             />
     </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/service"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColorHint="#ffffff"
+            android:theme="@style/MyEditText"
+            android:textColor="#ffffff"
+            android:drawableLeft="@mipmap/ic_pws"
+            />
+    </LinearLayout>
 
     <Button
         android:layout_marginTop="30dp"

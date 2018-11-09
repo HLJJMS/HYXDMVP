@@ -26,7 +26,7 @@ public class MyModel implements IMyModel {
         String ok;
         @Override
         protected String doInBackground(Void... voids) {
-            url = AppConfig.Url+AppConfig.General + "a="+"tp0000&d=2:" + AppConfig.Id;
+            url = AppConfig.UrlApp+AppConfig.General + "a="+"tp0000&d=2::" + AppConfig.Id;
             Log.e("连接",url);
             Request request= new Request.Builder().url(url).get().build();
             try {

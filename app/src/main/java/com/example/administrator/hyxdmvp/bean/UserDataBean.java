@@ -115,7 +115,7 @@ public class UserDataBean {
          */
 
         private int F0000;
-        private int F0001;
+        private String F0001;
         private String F0002;
         private String F0003;
         private String F0004;
@@ -175,11 +175,11 @@ public class UserDataBean {
             this.F0000 = F0000;
         }
 
-        public int getF0001() {
+        public String getF0001() {
             return F0001;
         }
 
-        public void setF0001(int F0001) {
+        public void setF0001(String F0001) {
             this.F0001 = F0001;
         }
 

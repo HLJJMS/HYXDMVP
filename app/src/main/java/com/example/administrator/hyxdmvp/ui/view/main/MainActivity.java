@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new TabAdapter(getSupportFragmentManager());
         viewpager.setAdapter(adapter);
         viewpager.setCurrentItem(0);
+        viewpager.setOffscreenPageLimit(3);
         viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
