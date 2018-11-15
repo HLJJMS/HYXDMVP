@@ -17,7 +17,7 @@ public class LoginPresenter implements ILoginPresenter {
     @Override
     public void success(LoginBean bean) {
         if (bean.getCode().equals("0")) {
-            if (null != bean.getMyDynamicData()) {
+            if (bean.getMyDynamicData().size()>0) {
                 AppConfig.CPCode = bean.getMyDynamicData().get(0).getF0001();
                 AppConfig.Id = bean.getMyDynamicData().get(0).getF0005();
                 view.showToast("登陆成功");
@@ -38,7 +38,7 @@ public class LoginPresenter implements ILoginPresenter {
     }
 
     @Override
-    public void goRequest(String userName, String pws) {
+    public void goRequest(String userName, String pws ) {
         view.showLoad();
         model.GetDate(userName, pws, this);
     }

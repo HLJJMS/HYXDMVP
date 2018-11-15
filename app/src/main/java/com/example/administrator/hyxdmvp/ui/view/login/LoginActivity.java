@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         presenter = new LoginPresenter(this);
         context = this;
         sp = getSharedPreferences("ZQZY", Context.MODE_PRIVATE);
+        service.setText(AppConfig.Url);
         getData();
     }
 
@@ -63,7 +64,6 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
             password.setText(psw);
             presenter.goRequest(userId, psw);
         }
-        service.setText(AppConfig.UrlApp);
     }
 
     @Override
@@ -117,7 +117,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ok:
-                AppConfig.UrlApp =service.getText().toString();
+                AppConfig.Url = service.getText().toString();
                 if (!"".equals(number.getText().toString()) && !"".equals(password.getText().toString())) {
                     presenter.goRequest(number.getText().toString(), password.getText().toString());
                 } else {

@@ -1,7 +1,9 @@
 package com.example.administrator.hyxdmvp.adapter.nodeAdapter;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import com.example.administrator.hyxdmvp.R;
 import com.example.administrator.hyxdmvp.base.tool.CompoundUrlForHome;
 import com.example.administrator.hyxdmvp.bean.UserManagerBean;
 import com.example.administrator.hyxdmvp.fragment.view.home.HomeFragment;
+import com.example.administrator.hyxdmvp.ui.view.UserDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +50,7 @@ public class UserManageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, final int i) {
         realPostion = i - 1;
         if (i == bean.size() +1) {
             ((FootViewHolder) viewHolder).max.setText(new StringBuffer().append("共").append(bean.size()).append("条数据").toString());
@@ -74,6 +77,16 @@ public class UserManageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             ((BodyViewHolder) viewHolder).type.setText(bean.get(realPostion).getF0087());
             ((BodyViewHolder) viewHolder).tel.setText(bean.get(realPostion).getF0032());
             ((BodyViewHolder) viewHolder).position.setText(bean.get(realPostion).getF0054());
+                ((BodyViewHolder) viewHolder).itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.e("位置",String.valueOf(i));
+                        Intent intent = new Intent();
+                        intent.putExtra("id",bean.get(i-1).getF0002());
+                        intent.setClass(fragment.getContext(),UserDetailActivity.class);
+                        fragment.startActivity(intent);
+                    }
+                });
         }
 
     }

@@ -70,7 +70,7 @@ public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.viewHolder> {
                     }
                 }else{
                     activity.closeDrawerLayout();
-                    activity.getRecyclerData(showNode.get(i).getF0005(),"");
+                    activity.getRecyclerData(showNode.get(i).getF0012(),"");
                 }
 
             }

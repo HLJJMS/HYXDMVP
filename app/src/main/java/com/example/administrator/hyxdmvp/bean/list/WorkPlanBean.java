@@ -68,17 +68,17 @@ public class WorkPlanBean {
          * F0004 : 测试一项工作计划工作反反复复
          */
 
-        private int F0000;
+        private String F0000;
         private String F0012;
         private String F0010;
         private double F0009;
         private String F0004;
 
-        public int getF0000() {
+        public String getF0000() {
             return F0000;
         }
 
-        public void setF0000(int F0000) {
+        public void setF0000(String F0000) {
             this.F0000 = F0000;
         }
 

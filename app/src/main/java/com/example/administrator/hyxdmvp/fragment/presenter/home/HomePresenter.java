@@ -24,7 +24,6 @@ public class HomePresenter implements IHomePresenter {
         this.view = view;
     }
 
-
     @Override
     public void onDestroy() {
         view = null;
@@ -42,7 +41,7 @@ public class HomePresenter implements IHomePresenter {
         MenuTreeBean menuBean = new MenuTreeBean();
         BaseOkHttp<MenuTreeBean> baseOkHttp;
         baseOkHttp = new BaseOkHttp<MenuTreeBean>(menuBean, MenuTreeBean.class);
-        baseOkHttp.getData(AppConfig.UrlApp + AppConfig.TreeMenuTest, new BaseOkHttp.CallBack<MenuTreeBean>() {
+        baseOkHttp.getData(AppConfig.TreeMenuTestUrl(), new BaseOkHttp.CallBack<MenuTreeBean>() {
             @Override
             public void success(MenuTreeBean bean) {
                 treeAdapter.setData(bean.getMyDynamicData());
@@ -60,7 +59,7 @@ public class HomePresenter implements IHomePresenter {
     public void getWorkPlanList(final WorkPlanAdapter workPlanAdapter, String projectSearchAddUrl) {
         WorkPlanBean workPlanBean = new WorkPlanBean();
         BaseOkHttp<WorkPlanBean> projectPlanBaseOkhttp = new BaseOkHttp<WorkPlanBean>(workPlanBean, WorkPlanBean.class);
-        projectPlanBaseOkhttp.getData(AppConfig.UrlApp + AppConfig.ProjectPlan + AppConfig.CPCode + projectSearchAddUrl, new BaseOkHttp.CallBack<WorkPlanBean>() {
+        projectPlanBaseOkhttp.getData(AppConfig.WorkPlanUrl() + projectSearchAddUrl, new BaseOkHttp.CallBack<WorkPlanBean>() {
             @Override
             public void success(WorkPlanBean bean) {
                 workPlanAdapter.setData(bean.getMyDynamicData());
@@ -80,7 +79,7 @@ public class HomePresenter implements IHomePresenter {
         UserDataBean userBean = new UserDataBean();
         BaseOkHttp<UserDataBean> baseOkHttp;
         baseOkHttp = new BaseOkHttp<UserDataBean>(userBean, UserDataBean.class);
-        baseOkHttp.getData(AppConfig.UrlApp + AppConfig.General + "a=t50000&b=2&d=1::" + AppConfig.CPCode, new BaseOkHttp.CallBack<UserDataBean>() {
+        baseOkHttp.getData(AppConfig.SpinnerForUserUrl(), new BaseOkHttp.CallBack<UserDataBean>() {
             @Override
             public void success(UserDataBean bean) {
                 LinkedList<DropDownItem> mData = new LinkedList<DropDownItem>();
@@ -102,7 +101,7 @@ public class HomePresenter implements IHomePresenter {
     public void getUserManagerBean(final UserManageAdapter userManageAdapter, String userManagerSearchAddUrl) {
         UserManagerBean userManagerBean = new UserManagerBean();
         BaseOkHttp<UserManagerBean> userManagerBaseOkhttp = new BaseOkHttp<UserManagerBean>(userManagerBean, UserManagerBean.class);
-        userManagerBaseOkhttp.getData(AppConfig.UrlApp + AppConfig.General + "a=TP0000&b=53|24|2|3|87|32&d=1::" + AppConfig.CPCode + userManagerSearchAddUrl, new BaseOkHttp.CallBack<UserManagerBean>() {
+        userManagerBaseOkhttp.getData(AppConfig.UserManagerUrl() + userManagerSearchAddUrl, new BaseOkHttp.CallBack<UserManagerBean>() {
 
             @Override
             public void success(UserManagerBean bean) {

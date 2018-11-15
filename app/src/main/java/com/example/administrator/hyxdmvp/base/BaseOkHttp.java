@@ -87,8 +87,7 @@ public class BaseOkHttp<T> {
                     bean = gson.fromJson(jsonObject.toJSONString(), type);
                     callBack.success(bean);
                 } else {
-
-                    callBack.fail(s);
+                    callBack.fail("用户名密码错误");
                 }
 
             } else {

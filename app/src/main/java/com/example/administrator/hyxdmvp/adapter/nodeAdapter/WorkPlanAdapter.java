@@ -2,6 +2,7 @@ package com.example.administrator.hyxdmvp.adapter.nodeAdapter;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,6 +20,8 @@ import com.example.administrator.hyxdmvp.base.tool.CompoundUrlForHome;
 import com.example.administrator.hyxdmvp.bean.DropDownItem;
 import com.example.administrator.hyxdmvp.bean.list.WorkPlanBean;
 import com.example.administrator.hyxdmvp.fragment.view.home.HomeFragment;
+import com.example.administrator.hyxdmvp.ui.view.UserDetailActivity;
+import com.example.administrator.hyxdmvp.ui.view.WorkPlanDetailActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -71,7 +74,7 @@ public class WorkPlanAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, final int i) {
         Log.e("max", String.valueOf(i));
         realPostion = i - 1;
         if (i == 0) {
@@ -107,6 +110,16 @@ public class WorkPlanAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         } else if (i == bean.size() +1) {
             ((FootViewHolder) viewHolder).max.setText(new StringBuffer().append("共").append(bean.size()).append("条数据").toString());
         } else {
+            ((BodyViewHolder) viewHolder).itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.e("位置",String.valueOf(i));
+                    Intent intent = new Intent();
+                    intent.putExtra("id",bean.get(i-1).getF0000());
+                    intent.setClass(fragment.getContext(),WorkPlanDetailActivity.class);
+                    fragment.startActivity(intent);
+                }
+            });
             ((BodyViewHolder) viewHolder).oneOne.setText(bean.get(realPostion).getF0004());
             ((BodyViewHolder) viewHolder).twoOne.setText(String.valueOf(bean.get(realPostion).getF0009()));
             ((BodyViewHolder) viewHolder).oneTwo.setText(bean.get(realPostion).getF0010());

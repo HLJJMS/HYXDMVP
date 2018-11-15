@@ -60,7 +60,6 @@ public class HomeFragment extends Fragment implements IHomeFragment {
         //获取树形列表数据
         presenter.getTreeList(treeAdapter);
         tree.setAdapter(treeAdapter);
-        getRecyclerData("M000118", "");
     }
 
 
@@ -86,14 +85,14 @@ public class HomeFragment extends Fragment implements IHomeFragment {
     //    树形列表点击事件
     public void getRecyclerData(String data, String urlAdd) {
         switch (data) {
-            case "M000181":
+            case "TR0003":
                 title.setText("工作计划");
                 listData.setAdapter(workPlanAdapter);
                 presenter.getSpinnerForUser(workPlanAdapter);
                 presenter.getWorkPlanList(workPlanAdapter, urlAdd);
                 projectSearchAddUrl = "";
                 break;
-            case "M000118":
+            case "TP0000":
                 title.setText("员工管理");
                 listData.setAdapter(userManageAdapter);
                 presenter.getUserManagerBean(userManageAdapter, urlAdd);

@@ -75,6 +75,7 @@ public class MenuTreeBean {
         private int F0008;
         private String F0009;
         private int F0010;
+        private String F0012;
 
         public boolean isShowChild() {
             return showChild;
@@ -138,6 +139,14 @@ public class MenuTreeBean {
 
         public void setF0010(int F0010) {
             this.F0010 = F0010;
+        }
+
+        public String getF0012() {
+            return F0012;
+        }
+
+        public void setF0012(String f0012) {
+            F0012 = f0012;
         }
     }
 }

@@ -13,7 +13,7 @@ public class LoginModel implements ILoginModel {
     public void GetDate(String userName, String pws, final ILoginPresenter presenter) {
         BaseOkHttp<LoginBean> okHttp = new BaseOkHttp<LoginBean>(loginBean, LoginBean.class);
         this.presenter = presenter;
-        okHttp.getData(AppConfig.UrlApp + AppConfig.General + "a=T50000&b=1|5&d=2::" + userName + "|3::" + pws, new BaseOkHttp.CallBack<LoginBean>() {
+        okHttp.getData(AppConfig.UrlApp() + AppConfig.General + "a=T50000&b=1|5&d=2::" + userName + "|3::" + pws, new BaseOkHttp.CallBack<LoginBean>() {
             @Override
             public void success(LoginBean bean) {
                 presenter.success(bean);
