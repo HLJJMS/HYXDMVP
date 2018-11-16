@@ -36,16 +36,21 @@ public class AppConfig {
 
     //工作计划
 
-    public static final String WorkPlanUrl(){
+    public static final String WorkPlanUrl() {
         return new StringBuffer().append(UrlApp()).append(General).append("a=TR0003&b=0|12|10|9|4&d=1::").append(CPCode).toString();
     }
     //员工人名下拉
 
-    public static String SpinnerForUserUrl(){
-        return new StringBuffer().append(UrlApp()).append(General).append( "a=t50000&b=2&d=1::").append(AppConfig.CPCode).toString();
+    public static String SpinnerForUserUrl() {
+        return new StringBuffer().append(UrlApp()).append(General).append("a=t50000&b=2&d=1::").append(AppConfig.CPCode).toString();
     }
+
     //获取用户列表
     public static String UserManagerUrl() {
         return new StringBuffer().append(UrlApp()).append(General).append("a=TP0000&b=53|24|2|3|87|32&d=1::").append(CPCode).toString();
+    }
+//    表格测试
+    public static String FormTest(){
+        return new StringBuffer().append(UrlApp()).append(General).append("a=TR0003&b=1|2|3|4|9|10|15").toString();
     }
 }
